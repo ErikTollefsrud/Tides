@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EFB5CE6F24DC9C0E00D4BA67 /* TidesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5CE6E24DC9C0E00D4BA67 /* TidesApp.swift */; };
+		EFB5CE7124DC9C0E00D4BA67 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5CE7024DC9C0E00D4BA67 /* ContentView.swift */; };
+		EFB5CE7324DC9C0F00D4BA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFB5CE7224DC9C0F00D4BA67 /* Assets.xcassets */; };
+		EFB5CE7624DC9C0F00D4BA67 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFB5CE7524DC9C0F00D4BA67 /* Preview Assets.xcassets */; };
+		EFB5CE8124DC9C0F00D4BA67 /* TidesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5CE8024DC9C0F00D4BA67 /* TidesTests.swift */; };
+		EFB5CE8C24DC9C0F00D4BA67 /* TidesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5CE8B24DC9C0F00D4BA67 /* TidesUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EFB5CE7D24DC9C0F00D4BA67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFB5CE6324DC9C0E00D4BA67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFB5CE6A24DC9C0E00D4BA67;
+			remoteInfo = Tides;
+		};
+		EFB5CE8824DC9C0F00D4BA67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFB5CE6324DC9C0E00D4BA67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFB5CE6A24DC9C0E00D4BA67;
+			remoteInfo = Tides;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EFB5CE6B24DC9C0E00D4BA67 /* Tides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tides.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB5CE6E24DC9C0E00D4BA67 /* TidesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidesApp.swift; sourceTree = "<group>"; };
+		EFB5CE7024DC9C0E00D4BA67 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EFB5CE7224DC9C0F00D4BA67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFB5CE7524DC9C0F00D4BA67 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EFB5CE7724DC9C0F00D4BA67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFB5CE7C24DC9C0F00D4BA67 /* TidesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TidesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB5CE8024DC9C0F00D4BA67 /* TidesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidesTests.swift; sourceTree = "<group>"; };
+		EFB5CE8224DC9C0F00D4BA67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFB5CE8724DC9C0F00D4BA67 /* TidesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TidesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB5CE8B24DC9C0F00D4BA67 /* TidesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidesUITests.swift; sourceTree = "<group>"; };
+		EFB5CE8D24DC9C0F00D4BA67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFB5CE6824DC9C0E00D4BA67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB5CE7924DC9C0F00D4BA67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB5CE8424DC9C0F00D4BA67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EFB5CE6224DC9C0E00D4BA67 = {
+			isa = PBXGroup;
+			children = (
+				EFB5CE6D24DC9C0E00D4BA67 /* Tides */,
+				EFB5CE7F24DC9C0F00D4BA67 /* TidesTests */,
+				EFB5CE8A24DC9C0F00D4BA67 /* TidesUITests */,
+				EFB5CE6C24DC9C0E00D4BA67 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EFB5CE6C24DC9C0E00D4BA67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFB5CE6B24DC9C0E00D4BA67 /* Tides.app */,
+				EFB5CE7C24DC9C0F00D4BA67 /* TidesTests.xctest */,
+				EFB5CE8724DC9C0F00D4BA67 /* TidesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFB5CE6D24DC9C0E00D4BA67 /* Tides */ = {
+			isa = PBXGroup;
+			children = (
+				EFB5CE6E24DC9C0E00D4BA67 /* TidesApp.swift */,
+				EFB5CE7024DC9C0E00D4BA67 /* ContentView.swift */,
+				EFB5CE7224DC9C0F00D4BA67 /* Assets.xcassets */,
+				EFB5CE7724DC9C0F00D4BA67 /* Info.plist */,
+				EFB5CE7424DC9C0F00D4BA67 /* Preview Content */,
+			);
+			path = Tides;
+			sourceTree = "<group>";
+		};
+		EFB5CE7424DC9C0F00D4BA67 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EFB5CE7524DC9C0F00D4BA67 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EFB5CE7F24DC9C0F00D4BA67 /* TidesTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFB5CE8024DC9C0F00D4BA67 /* TidesTests.swift */,
+				EFB5CE8224DC9C0F00D4BA67 /* Info.plist */,
+			);
+			path = TidesTests;
+			sourceTree = "<group>";
+		};
+		EFB5CE8A24DC9C0F00D4BA67 /* TidesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EFB5CE8B24DC9C0F00D4BA67 /* TidesUITests.swift */,
+				EFB5CE8D24DC9C0F00D4BA67 /* Info.plist */,
+			);
+			path = TidesUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFB5CE6A24DC9C0E00D4BA67 /* Tides */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFB5CE9024DC9C0F00D4BA67 /* Build configuration list for PBXNativeTarget "Tides" */;
+			buildPhases = (
+				EFB5CE6724DC9C0E00D4BA67 /* Sources */,
+				EFB5CE6824DC9C0E00D4BA67 /* Frameworks */,
+				EFB5CE6924DC9C0E00D4BA67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tides;
+			productName = Tides;
+			productReference = EFB5CE6B24DC9C0E00D4BA67 /* Tides.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EFB5CE7B24DC9C0F00D4BA67 /* TidesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFB5CE9324DC9C0F00D4BA67 /* Build configuration list for PBXNativeTarget "TidesTests" */;
+			buildPhases = (
+				EFB5CE7824DC9C0F00D4BA67 /* Sources */,
+				EFB5CE7924DC9C0F00D4BA67 /* Frameworks */,
+				EFB5CE7A24DC9C0F00D4BA67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFB5CE7E24DC9C0F00D4BA67 /* PBXTargetDependency */,
+			);
+			name = TidesTests;
+			productName = TidesTests;
+			productReference = EFB5CE7C24DC9C0F00D4BA67 /* TidesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EFB5CE8624DC9C0F00D4BA67 /* TidesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFB5CE9624DC9C0F00D4BA67 /* Build configuration list for PBXNativeTarget "TidesUITests" */;
+			buildPhases = (
+				EFB5CE8324DC9C0F00D4BA67 /* Sources */,
+				EFB5CE8424DC9C0F00D4BA67 /* Frameworks */,
+				EFB5CE8524DC9C0F00D4BA67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFB5CE8924DC9C0F00D4BA67 /* PBXTargetDependency */,
+			);
+			name = TidesUITests;
+			productName = TidesUITests;
+			productReference = EFB5CE8724DC9C0F00D4BA67 /* TidesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFB5CE6324DC9C0E00D4BA67 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					EFB5CE6A24DC9C0E00D4BA67 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					EFB5CE7B24DC9C0F00D4BA67 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = EFB5CE6A24DC9C0E00D4BA67;
+					};
+					EFB5CE8624DC9C0F00D4BA67 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = EFB5CE6A24DC9C0E00D4BA67;
+					};
+				};
+			};
+			buildConfigurationList = EFB5CE6624DC9C0E00D4BA67 /* Build configuration list for PBXProject "Tides" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EFB5CE6224DC9C0E00D4BA67;
+			productRefGroup = EFB5CE6C24DC9C0E00D4BA67 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFB5CE6A24DC9C0E00D4BA67 /* Tides */,
+				EFB5CE7B24DC9C0F00D4BA67 /* TidesTests */,
+				EFB5CE8624DC9C0F00D4BA67 /* TidesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFB5CE6924DC9C0E00D4BA67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB5CE7624DC9C0F00D4BA67 /* Preview Assets.xcassets in Resources */,
+				EFB5CE7324DC9C0F00D4BA67 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB5CE7A24DC9C0F00D4BA67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB5CE8524DC9C0F00D4BA67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFB5CE6724DC9C0E00D4BA67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB5CE7124DC9C0E00D4BA67 /* ContentView.swift in Sources */,
+				EFB5CE6F24DC9C0E00D4BA67 /* TidesApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB5CE7824DC9C0F00D4BA67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB5CE8124DC9C0F00D4BA67 /* TidesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB5CE8324DC9C0F00D4BA67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB5CE8C24DC9C0F00D4BA67 /* TidesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EFB5CE7E24DC9C0F00D4BA67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFB5CE6A24DC9C0E00D4BA67 /* Tides */;
+			targetProxy = EFB5CE7D24DC9C0F00D4BA67 /* PBXContainerItemProxy */;
+		};
+		EFB5CE8924DC9C0F00D4BA67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFB5CE6A24DC9C0E00D4BA67 /* Tides */;
+			targetProxy = EFB5CE8824DC9C0F00D4BA67 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EFB5CE8E24DC9C0F00D4BA67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EFB5CE8F24DC9C0F00D4BA67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EFB5CE9124DC9C0F00D4BA67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Tides/Preview Content\"";
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Tides/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eriktollefsrud.Tides;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EFB5CE9224DC9C0F00D4BA67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Tides/Preview Content\"";
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Tides/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eriktollefsrud.Tides;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EFB5CE9424DC9C0F00D4BA67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				INFOPLIST_FILE = TidesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eriktollefsrud.TidesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tides.app/Tides";
+			};
+			name = Debug;
+		};
+		EFB5CE9524DC9C0F00D4BA67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				INFOPLIST_FILE = TidesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eriktollefsrud.TidesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tides.app/Tides";
+			};
+			name = Release;
+		};
+		EFB5CE9724DC9C0F00D4BA67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				INFOPLIST_FILE = TidesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eriktollefsrud.TidesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Tides;
+			};
+			name = Debug;
+		};
+		EFB5CE9824DC9C0F00D4BA67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				INFOPLIST_FILE = TidesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eriktollefsrud.TidesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Tides;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFB5CE6624DC9C0E00D4BA67 /* Build configuration list for PBXProject "Tides" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFB5CE8E24DC9C0F00D4BA67 /* Debug */,
+				EFB5CE8F24DC9C0F00D4BA67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFB5CE9024DC9C0F00D4BA67 /* Build configuration list for PBXNativeTarget "Tides" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFB5CE9124DC9C0F00D4BA67 /* Debug */,
+				EFB5CE9224DC9C0F00D4BA67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFB5CE9324DC9C0F00D4BA67 /* Build configuration list for PBXNativeTarget "TidesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFB5CE9424DC9C0F00D4BA67 /* Debug */,
+				EFB5CE9524DC9C0F00D4BA67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFB5CE9624DC9C0F00D4BA67 /* Build configuration list for PBXNativeTarget "TidesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFB5CE9724DC9C0F00D4BA67 /* Debug */,
+				EFB5CE9824DC9C0F00D4BA67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFB5CE6324DC9C0E00D4BA67 /* Project object */;
+}
