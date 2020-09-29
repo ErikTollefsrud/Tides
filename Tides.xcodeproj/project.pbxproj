@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF3110A02522B0A200BA1B64 /* TidesAndCurrentsClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = EF31109F2522B0A200BA1B64 /* TidesAndCurrentsClientLive */; };
+		EF3110A12522B0A200BA1B64 /* TidesAndCurrentsClientLive in Embed Frameworks */ = {isa = PBXBuildFile; productRef = EF31109F2522B0A200BA1B64 /* TidesAndCurrentsClientLive */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		EFB5CE6F24DC9C0E00D4BA67 /* TidesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5CE6E24DC9C0E00D4BA67 /* TidesApp.swift */; };
 		EFB5CE7124DC9C0E00D4BA67 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5CE7024DC9C0E00D4BA67 /* ContentView.swift */; };
 		EFB5CE7324DC9C0F00D4BA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFB5CE7224DC9C0F00D4BA67 /* Assets.xcassets */; };
 		EFB5CE7624DC9C0F00D4BA67 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFB5CE7524DC9C0F00D4BA67 /* Preview Assets.xcassets */; };
 		EFB5CE8124DC9C0F00D4BA67 /* TidesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5CE8024DC9C0F00D4BA67 /* TidesTests.swift */; };
 		EFB5CE8C24DC9C0F00D4BA67 /* TidesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5CE8B24DC9C0F00D4BA67 /* TidesUITests.swift */; };
-		EFBFAED8251E9585007D2BAA /* TidesAndCurrentsClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = EFBFAED7251E9585007D2BAA /* TidesAndCurrentsClientLive */; };
-		EFBFAED9251E9585007D2BAA /* TidesAndCurrentsClientLive in Embed Frameworks */ = {isa = PBXBuildFile; productRef = EFBFAED7251E9585007D2BAA /* TidesAndCurrentsClientLive */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EFBFAED9251E9585007D2BAA /* TidesAndCurrentsClientLive in Embed Frameworks */,
+				EF3110A12522B0A200BA1B64 /* TidesAndCurrentsClientLive in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,7 +49,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		EF5CA15C25105C3000597856 /* TidesAndCurrentsClient */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TidesAndCurrentsClient; path = ../../../Desktop/TidesAndCurrentsClient; sourceTree = "<group>"; };
 		EF89375925002CCF0096462F /* TidesApp.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TidesApp.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EFB5CE6B24DC9C0E00D4BA67 /* Tides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB5CE6E24DC9C0E00D4BA67 /* TidesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidesApp.swift; sourceTree = "<group>"; };
@@ -70,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFBFAED8251E9585007D2BAA /* TidesAndCurrentsClientLive in Frameworks */,
+				EF3110A02522B0A200BA1B64 /* TidesAndCurrentsClientLive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +93,6 @@
 		EFB5CE6224DC9C0E00D4BA67 = {
 			isa = PBXGroup;
 			children = (
-				EF5CA15C25105C3000597856 /* TidesAndCurrentsClient */,
 				EF89375925002CCF0096462F /* TidesApp.playground */,
 				EFB5CE6D24DC9C0E00D4BA67 /* Tides */,
 				EFB5CE7F24DC9C0F00D4BA67 /* TidesTests */,
@@ -177,7 +175,7 @@
 			);
 			name = Tides;
 			packageProductDependencies = (
-				EFBFAED7251E9585007D2BAA /* TidesAndCurrentsClientLive */,
+				EF31109F2522B0A200BA1B64 /* TidesAndCurrentsClientLive */,
 			);
 			productName = Tides;
 			productReference = EFB5CE6B24DC9C0E00D4BA67 /* Tides.app */;
@@ -252,6 +250,7 @@
 			mainGroup = EFB5CE6224DC9C0E00D4BA67;
 			packageReferences = (
 				EFC3F63E251C33DC0039BC8A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				EF3110922522AFF100BA1B64 /* XCRemoteSwiftPackageReference "TidesAndCurrentsClient" */,
 			);
 			productRefGroup = EFB5CE6C24DC9C0E00D4BA67 /* Products */;
 			projectDirPath = "";
@@ -618,6 +617,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EF3110922522AFF100BA1B64 /* XCRemoteSwiftPackageReference "TidesAndCurrentsClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ErikTollefsrud/TidesAndCurrentsClient.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
 		EFC3F63E251C33DC0039BC8A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
@@ -629,8 +636,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EFBFAED7251E9585007D2BAA /* TidesAndCurrentsClientLive */ = {
+		EF31109F2522B0A200BA1B64 /* TidesAndCurrentsClientLive */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = EF3110922522AFF100BA1B64 /* XCRemoteSwiftPackageReference "TidesAndCurrentsClient" */;
 			productName = TidesAndCurrentsClientLive;
 		};
 /* End XCSwiftPackageProductDependency section */
