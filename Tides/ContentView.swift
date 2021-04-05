@@ -17,19 +17,26 @@ struct AppState: Equatable {
 
 enum AppAction: Equatable {    
     case onAppear
-    case stationsResponse(Result<[Station], TidesClient.Failure>)
+    case stationsResponse(Result<[Station], Never>)
 }
 
 struct AppEnvironment {
     var tidesClient: TidesClient
+    var tidesAndCurrentProvider: TidesAndCurrentsProvider
 }
 
 let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
     switch action {
     case .onAppear:
-        return environment.tidesClient
-            .stations()
+//        return environment.tidesClient
+//            .stations()
+//            .receive(on: DispatchQueue.main)
+//            .catchToEffect()
+//            .map(AppAction.stationsResponse)
+        return environment.tidesAndCurrentProvider
+            .tidePredictionStations()
             .receive(on: DispatchQueue.main)
+            .compactMap{ $0 }
             .catchToEffect()
             .map(AppAction.stationsResponse)
     case let .stationsResponse(.failure(response)):
@@ -50,7 +57,17 @@ struct ContentView: View {
             NavigationView {
                 List{
                     ForEach(viewStore.stations) { station in
-                        NavigationLink("\(station.name), \(station.state)", destination: EmptyView())
+                        NavigationLink("\(station.name), \(station.state)",
+                                       destination: TideReading(
+                                        station: station,
+                                        store: Store(
+                                            initialState: TideReadingState(stationID: String(station.id)),
+                                            reducer: tideReadingReducer,
+                                            environment: TideReadingEnvironment(
+                                                tidesAndCurrentProvider: .live)
+                                        )
+                                       )
+                        )
                     }
                 }
                 .navigationBarTitle("Stations")
@@ -66,12 +83,14 @@ struct ContentView_Previews: PreviewProvider {
             store: Store(
                 initialState: AppState(
                     errorMessage: "", stations: [
-                        Station(id: 12345678, name: "Test 1", state: "MN", latitude: 100.00, longitude: -100.00),
-                        Station(id: 87654321, name: "Test 2", state: "WI", latitude: 200.00, longitude: -200.00)
+                        Station(id: "12345678", name: "Test 1", state: "MN", latitude: 100.00, longitude: -100.00),
+                        Station(id: "87654321", name: "Test 2", state: "WI", latitude: 200.00, longitude: -200.00)
                     ]
                 ),
                 reducer: appReducer,
-                environment: AppEnvironment(tidesClient: .mock)
+                environment: AppEnvironment(
+                    tidesClient: .mock,
+                    tidesAndCurrentProvider: .live)
             )
         )
     }

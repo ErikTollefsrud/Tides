@@ -16,7 +16,8 @@ struct TidesApp: App {
             ContentView(store: Store(
                             initialState: AppState(),
                             reducer: appReducer,
-                            environment: AppEnvironment(tidesClient: .live))
+                            environment: AppEnvironment(tidesClient: .live,
+                                                        tidesAndCurrentProvider: .live))
             )
         }
     }
