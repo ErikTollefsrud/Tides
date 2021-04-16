@@ -1,6 +1,5 @@
 import ComposableArchitecture
 import Foundation
-//import MoviehubTypes
 import TidesAndCurrentsClient
 import SwiftUI
 
@@ -22,11 +21,11 @@ public struct SearchView: View {
           ),
           isSearching: viewStore.shouldShowActivityIndicator
         )
-
+        
         List(viewStore.filteredItems) { item in
-//            NavigationLink(destination: Text(String(describing: item))) {
+          NavigationLink(destination: Text(String(describing: item))) {
             SearchResultRow(station: item)
-//          }
+          }
         }
         .listStyle(PlainListStyle())
         .animation(.default)
