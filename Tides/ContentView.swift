@@ -11,68 +11,72 @@ import SwiftUI
 import TidesAndCurrentsClient
 
 struct AppState: Equatable {
+    var searchText: String = ""
     var errorMessage: String = ""
-    var stations: [Station] = []
+    var stationsSearchResult: [Station] = []
+    var filteredStations: [Station] = []
+    var searchShouldShowActivityIndicator: Bool = false
 }
 
-enum AppAction: Equatable {    
-    case onAppear
-    case stationsResponse(Result<[Station], Never>)
+extension AppState {
+    var search: SearchState {
+        get {
+            return SearchState(
+                query: self.searchText,
+                items: self.stationsSearchResult,
+              filteredItems: self.filteredStations,
+                shouldShowActivityIndicator: self.searchShouldShowActivityIndicator
+            )
+        }
+        set {
+          self.searchText = newValue.query
+          self.stationsSearchResult = newValue.items
+          self.filteredStations = newValue.filteredItems
+          self.searchShouldShowActivityIndicator = newValue.shouldShowActivityIndicator
+        }
+    }
+}
+
+enum AppAction: Equatable {
+    case search(SearchAction)
 }
 
 struct AppEnvironment {
     var tidesClient: TidesClient
     var tidesAndCurrentProvider: TidesAndCurrentsProvider
+    var mainQueue: AnySchedulerOf<DispatchQueue>
 }
 
-let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
-    switch action {
-    case .onAppear:
-//        return environment.tidesClient
-//            .stations()
-//            .receive(on: DispatchQueue.main)
-//            .catchToEffect()
-//            .map(AppAction.stationsResponse)
-        return environment.tidesAndCurrentProvider
-            .tidePredictionStations()
-            .receive(on: DispatchQueue.main)
-            .compactMap{ $0 }
-            .catchToEffect()
-            .map(AppAction.stationsResponse)
-    case let .stationsResponse(.failure(response)):
-        state.errorMessage = response.localizedDescription
-        state.stations = []
-        return .none
-    case let .stationsResponse(.success(response)):
-        state.stations = response
-        return .none
-    }
+extension AppEnvironment {
+  var search: SearchEnvironment { .init(provider: self.tidesAndCurrentProvider, mainQueue: self.mainQueue) }
 }
+
+let appReducer: Reducer<AppState, AppAction, AppEnvironment> =
+  searchReducer.pullback(state: \.search, action: /AppAction.search, environment: \.search)
 
 struct ContentView: View {
     let store: Store<AppState, AppAction>
     
     var body: some View {
-        WithViewStore(store) { viewStore in
-            NavigationView {
-                List{
-                    ForEach(viewStore.stations) { station in
-                        NavigationLink("\(station.name), \(station.state)",
-                                       destination: TideReading(
-                                        station: station,
-                                        store: Store(
-                                            initialState: TideReadingState(stationID: String(station.id)),
-                                            reducer: tideReadingReducer,
-                                            environment: TideReadingEnvironment(
-                                                tidesAndCurrentProvider: .live)
-                                        )
-                                       )
-                        )
-                    }
+        TabView {
+            Text("Tab 1")
+                .tabItem{
+                    Image(systemName: "star")
+                    Text("Favorites")
                 }
-                .navigationBarTitle("Stations")
+            
+            NavigationView {
+              SearchView(
+                store: self.store.scope(
+                    state: { $0.search },
+                  action: { .search($0) }
+                )
+              )
             }
-            .onAppear{ viewStore.send(.onAppear) }
+            .tabItem {
+              Image(systemName: "magnifyingglass")
+              Text("Search")
+            }
         }
     }
 }
@@ -82,7 +86,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView(
             store: Store(
                 initialState: AppState(
-                    errorMessage: "", stations: [
+                    errorMessage: "", stationsSearchResult: [
                         Station(id: "12345678", name: "Test 1", state: "MN", latitude: 100.00, longitude: -100.00),
                         Station(id: "87654321", name: "Test 2", state: "WI", latitude: 200.00, longitude: -200.00)
                     ]
@@ -90,7 +94,8 @@ struct ContentView_Previews: PreviewProvider {
                 reducer: appReducer,
                 environment: AppEnvironment(
                     tidesClient: .mock,
-                    tidesAndCurrentProvider: .live)
+                    tidesAndCurrentProvider: .live,
+                    mainQueue: DispatchQueue.main.eraseToAnyScheduler())
             )
         )
     }

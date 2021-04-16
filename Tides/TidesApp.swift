@@ -17,7 +17,8 @@ struct TidesApp: App {
                             initialState: AppState(),
                             reducer: appReducer,
                             environment: AppEnvironment(tidesClient: .live,
-                                                        tidesAndCurrentProvider: .live))
+                                                        tidesAndCurrentProvider: .live,
+                                                        mainQueue: DispatchQueue.main.eraseToAnyScheduler()))
             )
         }
     }

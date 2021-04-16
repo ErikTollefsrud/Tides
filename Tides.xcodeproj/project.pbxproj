@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		EF3110A02522B0A200BA1B64 /* TidesAndCurrentsClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = EF31109F2522B0A200BA1B64 /* TidesAndCurrentsClientLive */; };
 		EF3110A12522B0A200BA1B64 /* TidesAndCurrentsClientLive in Embed Frameworks */ = {isa = PBXBuildFile; productRef = EF31109F2522B0A200BA1B64 /* TidesAndCurrentsClientLive */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		EF80DA01261BA38F0066D358 /* SearchCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80D9FA261BA38F0066D358 /* SearchCore.swift */; };
+		EF80DA02261BA38F0066D358 /* SearchResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80D9FC261BA38F0066D358 /* SearchResultRow.swift */; };
+		EF80DA04261BA38F0066D358 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80D9FF261BA38F0066D358 /* SearchView.swift */; };
+		EF80DA05261BA38F0066D358 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80DA00261BA38F0066D358 /* SearchBar.swift */; };
 		EF945EC72606F08E00AB58DA /* TideReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF945EC62606F08E00AB58DA /* TideReading.swift */; };
 		EFB5CE6F24DC9C0E00D4BA67 /* TidesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5CE6E24DC9C0E00D4BA67 /* TidesApp.swift */; };
 		EFB5CE7124DC9C0E00D4BA67 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB5CE7024DC9C0E00D4BA67 /* ContentView.swift */; };
@@ -51,6 +55,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EF80D9FA261BA38F0066D358 /* SearchCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCore.swift; sourceTree = "<group>"; };
+		EF80D9FC261BA38F0066D358 /* SearchResultRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultRow.swift; sourceTree = "<group>"; };
+		EF80D9FF261BA38F0066D358 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		EF80DA00261BA38F0066D358 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		EF89375925002CCF0096462F /* TidesApp.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TidesApp.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EF945EC62606F08E00AB58DA /* TideReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideReading.swift; sourceTree = "<group>"; };
 		EFB5CE6B24DC9C0E00D4BA67 /* Tides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tides.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +103,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF80D9F8261BA38F0066D358 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				EF80D9F9261BA38F0066D358 /* Core */,
+				EF80D9FB261BA38F0066D358 /* SearchResultRow */,
+				EF80D9FE261BA38F0066D358 /* Views */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		EF80D9F9261BA38F0066D358 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EF80D9FA261BA38F0066D358 /* SearchCore.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EF80D9FB261BA38F0066D358 /* SearchResultRow */ = {
+			isa = PBXGroup;
+			children = (
+				EF80D9FC261BA38F0066D358 /* SearchResultRow.swift */,
+			);
+			path = SearchResultRow;
+			sourceTree = "<group>";
+		};
+		EF80D9FE261BA38F0066D358 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF80D9FF261BA38F0066D358 /* SearchView.swift */,
+				EF80DA00261BA38F0066D358 /* SearchBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		EFB5CE6224DC9C0E00D4BA67 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +164,7 @@
 		EFB5CE6D24DC9C0E00D4BA67 /* Tides */ = {
 			isa = PBXGroup;
 			children = (
+				EF80D9F8261BA38F0066D358 /* Search */,
 				EFB5CE6E24DC9C0E00D4BA67 /* TidesApp.swift */,
 				EFB5CE7024DC9C0E00D4BA67 /* ContentView.swift */,
 				EFB5CE7224DC9C0F00D4BA67 /* Assets.xcassets */,
@@ -303,7 +347,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF945EC72606F08E00AB58DA /* TideReading.swift in Sources */,
+				EF80DA02261BA38F0066D358 /* SearchResultRow.swift in Sources */,
+				EF80DA04261BA38F0066D358 /* SearchView.swift in Sources */,
 				EFB5CE7124DC9C0E00D4BA67 /* ContentView.swift in Sources */,
+				EF80DA05261BA38F0066D358 /* SearchBar.swift in Sources */,
+				EF80DA01261BA38F0066D358 /* SearchCore.swift in Sources */,
 				EFB5CE6F24DC9C0E00D4BA67 /* TidesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
