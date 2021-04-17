@@ -75,7 +75,7 @@ struct ContentView: View {
             }
             .tabItem {
               Image(systemName: "magnifyingglass")
-              Text("Search")
+              Text("Locations")
             }
         }
     }

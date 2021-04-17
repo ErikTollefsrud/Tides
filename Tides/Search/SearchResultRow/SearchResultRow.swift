@@ -5,6 +5,7 @@ struct SearchResultRow: View {
   let station: Station
   var body: some View {
     HStack {
+      Image(systemName: "mappin.and.ellipse")
       if station.state.isEmpty {
         Text(station.name)
       } else {
@@ -21,8 +22,21 @@ struct SearchResultRow: View {
 }
 
 struct SearchResultRow_Previews: PreviewProvider {
-  static let previewItems = [Station.init(id: "1", name: "My Station", state: "MN", latitude: 10.0, longitude: 10.0),
-                             Station.init(id: "2", name: "My Second Station", state: "WI", latitude: 5.0, longitude: 5.0)]
+  static let previewItems = [
+    Station.init(
+      id: "1",
+      name: "My Station",
+      state: "MN",
+      latitude: 10.0,
+      longitude: 10.0),
+    
+    Station.init(
+      id: "2",
+      name: "My Second Station",
+      state: "WI",
+      latitude: 5.0,
+      longitude: 5.0),
+  ]
   
   static var previews: some View {
     Group{

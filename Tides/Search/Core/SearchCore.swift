@@ -117,7 +117,7 @@ public let searchReducer = Reducer<SearchState, SearchAction, SearchEnvironment>
     return .none
     
   case .downloadAllStations:
-    print("downloading...")
+    //print("downloading...")
     return environment.provider
       .tidePredictionStations()
       .receive(on: environment.mainQueue)
@@ -126,7 +126,7 @@ public let searchReducer = Reducer<SearchState, SearchAction, SearchEnvironment>
       .cancellable(id: DownloadInProgressId(), cancelInFlight: false)
     
   case let .recieveAllStations(stations):
-    print("recieving...")
+    //print("recieving...")
     if let stations = stations {
       state.items = stations
     }

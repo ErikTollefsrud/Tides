@@ -14,7 +14,7 @@ public struct SearchView: View {
     WithViewStore(self.store) { viewStore in
       VStack {
         SearchBar(
-          title: "Station Name...",
+          title: "Station Name, City, or State Initial",
           searchText: viewStore.binding(
             get: { $0.query },
             send: { .textChanged($0) }
@@ -23,15 +23,17 @@ public struct SearchView: View {
         )
         
         List(viewStore.filteredItems) { item in
-          NavigationLink(destination: Text(String(describing: item))) {
-            SearchResultRow(station: item)
-          }
+          
+          Button(action: {print("button tapped on \(item)\nWindows: \(UIApplication.shared.windows[0].isKeyWindow)")}, label: {
+              SearchResultRow(station: item)
+            })
+          
         }
         .listStyle(PlainListStyle())
         .animation(.default)
         .resignKeyboardOnDragGesture()
       }
-      .navigationBarTitle("Search")
+      .navigationBarTitle("Locations")
     }
   }
 }
@@ -63,8 +65,21 @@ struct ResignKeyboardOnDragGesture: ViewModifier {
 // MARK: Previews
 
 struct SearchView_Previews: PreviewProvider {
-  static let searchResult = [Station(id: "12345678", name: "Test 1", state: "MN", latitude: 100.00, longitude: -100.00),
-                             Station(id: "87654321", name: "Test 2", state: "WI", latitude: 200.00, longitude: -200.00)]
+  static let searchResult = [
+    Station(
+      id: "12345678",
+      name: "Test 1",
+      state: "MN",
+      latitude: 100.00,
+      longitude: -100.00),
+    
+    Station(
+      id: "87654321",
+      name: "Test 2",
+      state: "WI",
+      latitude: 200.00,
+      longitude: -200.00)
+  ]
 
   static var previews: some View {
     let store = Store<SearchState, SearchAction>(
