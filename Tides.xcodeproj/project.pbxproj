@@ -73,7 +73,7 @@
 		EFB5CE8724DC9C0F00D4BA67 /* TidesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TidesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB5CE8B24DC9C0F00D4BA67 /* TidesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidesUITests.swift; sourceTree = "<group>"; };
 		EFB5CE8D24DC9C0F00D4BA67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EFF9CF3C2614D7DC00C2258D /* TidesAndCurrentsClient */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TidesAndCurrentsClient; path = ../TidesAndCurrentsClient; sourceTree = "<group>"; };
+		FBEA09CC262BF6AF003DCCC5 /* TidesAndCurrentsClient */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TidesAndCurrentsClient; path = ../TidesAndCurrentsClient; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +141,7 @@
 		EFB5CE6224DC9C0E00D4BA67 = {
 			isa = PBXGroup;
 			children = (
-				EFF9CF3C2614D7DC00C2258D /* TidesAndCurrentsClient */,
+				FBEA09CC262BF6AF003DCCC5 /* TidesAndCurrentsClient */,
 				EF89375925002CCF0096462F /* TidesApp.playground */,
 				EFB5CE6D24DC9C0E00D4BA67 /* Tides */,
 				EFB5CE7F24DC9C0F00D4BA67 /* TidesTests */,
