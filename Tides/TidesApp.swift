@@ -14,9 +14,9 @@ struct TidesApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(store: Store(
-                            initialState: AppState(),
-                            reducer: appReducer,
-                            environment: AppEnvironment(tidesClient: .live,
+                            initialState: Root.State(),
+                            reducer: Root.reducer,
+                            environment: Root.Environment(tidesClient: .live,
                                                         tidesAndCurrentProvider: .live,
                                                         mainQueue: DispatchQueue.main.eraseToAnyScheduler()))
             )
