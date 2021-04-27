@@ -12,6 +12,7 @@ import TidesAndCurrentsClient
 
 struct Root {
     struct State: Equatable {
+        var selectedTab = Tab.stationReading
         var searchText: String = ""
         var errorMessage: String = ""
         var stationsSearchResult: [Station] = []
@@ -34,9 +35,15 @@ struct Root {
                 self.searchShouldShowActivityIndicator = newValue.shouldShowActivityIndicator
             }
         }
+        
+        enum Tab {
+            case stationReading
+            case locationSearch
+        }
     }
     
     enum Action: Equatable {
+        case setSelectedTab(tab: Root.State.Tab)
         case search(Search.Action)
     }
     
@@ -55,12 +62,23 @@ extension Root.Environment {
 }
 
 extension Root {
-    static let reducer: Reducer<State, Action, Environment> =
+    static let reducer: Reducer<State, Action, Environment> = .combine(
         Search.reducer.pullback(
             state: \.search,
             action: /Action.search,
             environment: \.search
-        )
+        ),
+        Reducer { state, action, environment in
+            switch action {
+            case .setSelectedTab(tab: let tab):
+                state.selectedTab = tab
+                return .none
+            default:
+                ()
+            }
+            return .none
+        }
+    )
 }
 
 
@@ -68,24 +86,29 @@ struct ContentView: View {
     let store: Store<Root.State, Root.Action>
     
     var body: some View {
-        TabView {
-            Text("Tab 1")
-                .tabItem{
-                    Image(systemName: "star")
-                    Text("Favorites")
-                }
-            
-            NavigationView {
-                SearchView(
-                    store: self.store.scope(
-                        state: { $0.search },
-                        action: { .search($0) }
+        WithViewStore(store) { viewStore in
+            TabView(selection: viewStore.binding(
+                        get: \.selectedTab,
+                        send: Root.Action.setSelectedTab(tab:))
+            ) {
+                Text("Tab 1")
+                    .tabItem{
+                        Image(systemName: "mappin.and.ellipse")
+                        Text("Data")
+                    }.tag(Root.State.Tab.stationReading)
+                
+                NavigationView {
+                    SearchView(
+                        store: self.store.scope(
+                            state: { $0.search },
+                            action: { .search($0) }
+                        )
                     )
-                )
-            }
-            .tabItem {
-                Image(systemName: "magnifyingglass")
-                Text("Locations")
+                }
+                .tabItem {
+                    Image(systemName: "map")
+                    Text("Stations")
+                }.tag(Root.State.Tab.locationSearch)
             }
         }
     }
