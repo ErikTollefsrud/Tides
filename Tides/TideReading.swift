@@ -17,11 +17,11 @@ struct TideReading {
     
     enum Action {
         case onAppear(String)
-        case predictionResponse(Result<TidePredictions, TideError>)
+        case predictionResponse(Result<TidePredictions, NOAA_APIClientError>)
     }
     
     struct Environment {
-        var tidesAndCurrentProvider: TidesAndCurrentsProvider
+        var tidesAndCurrentProvider: TideClient
     }
 }
 
@@ -29,7 +29,7 @@ extension TideReading {
     static let reducer = Reducer<State, Action, Environment>{ state, action, environment in
         switch action {
         case let .onAppear(stationString):
-            return environment.tidesAndCurrentProvider.nextTwoDaysOfPredictions(stationString)
+            return environment.tidesAndCurrentProvider.fetch48HourTidePredictions(stationString)
                 .receive(on: DispatchQueue.main)
                 .print()
                 .catchToEffect()
@@ -47,47 +47,34 @@ extension TideReading {
 }
 
 struct TideReadingView: View {
-    @State var station: Station
     let store: Store<TideReading.State, TideReading.Action>
     
     var body: some View {
-        WithViewStore(store) { viewStore in
+        WithViewStore(self.store) { viewStore in
             VStack {
-                //                Text("Tide Level")
-                //                    .font(.title)
-                //                Text("Water Level")
-                //                    .font(.headline)
-                //                HStack {
-                //                    Text("Now: ")
-                //                    Text("3 ft")
-                //                }
-                //                .padding()
-                //                Text("Tides")
-                //                    .font(.headline)
-                //                HStack {
-                //                    Text("")
-                //                }
                 List {
-                    ForEach(viewStore.predictionReading.predictions) { prediction in
+                    ForEach(viewStore.predictionReading.predictions, id: \.self) { prediction in
                         Text("\(prediction.time) - \(prediction.value) - \(prediction.type.rawValue)")
                     }
                 }
             }
-            .onAppear { viewStore.send(.onAppear("\(station.id)")) }
-            .navigationTitle(Text("\(station.name)"))
+            .onAppear { viewStore.send(.onAppear(viewStore.state.stationID)) }
         }
     }
 }
 
+//List {
+//    ForEach(viewStore.predictionReading.predictions) { prediction in
+//        Text("\(prediction.time) - \(prediction.value) - \(prediction.type.rawValue)")
+//    }
+//}
+
+//.onAppear { viewStore.send(.onAppear("\(station.id)")) }
+//.navigationTitle(Text("\(station.name)"))
+
 struct TideReading_Previews: PreviewProvider {
     static var previews: some View {
         TideReadingView(
-            station: Station.init(
-                id: "8454000",
-                name: "Providence",
-                state: "RI",
-                latitude: 41.000,
-                longitude: 21.000),
             store: Store(
                 initialState: TideReading.State(stationID: "8454000", predictionReading: TidePredictions(predictions: [])),
                 reducer: TideReading.reducer,

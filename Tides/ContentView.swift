@@ -48,8 +48,7 @@ struct Root {
     }
     
     struct Environment {
-        var tidesClient: TidesClient
-        var tidesAndCurrentProvider: TidesAndCurrentsProvider
+        var tidesClient: TideClient
         var mainQueue: AnySchedulerOf<DispatchQueue>
     }
     
@@ -57,7 +56,7 @@ struct Root {
 
 extension Root.Environment {
     var search: Search.Environment {
-        .init(provider: self.tidesAndCurrentProvider, mainQueue: self.mainQueue)
+        .init(provider: self.tidesClient, mainQueue: self.mainQueue)
     }
 }
 
@@ -126,8 +125,7 @@ struct ContentView_Previews: PreviewProvider {
                 ),
                 reducer: Root.reducer,
                 environment: Root.Environment(
-                    tidesClient: .mock,
-                    tidesAndCurrentProvider: .live,
+                    tidesClient: .live,
                     mainQueue: DispatchQueue.main.eraseToAnyScheduler())
             )
         )

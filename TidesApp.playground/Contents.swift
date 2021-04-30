@@ -1,6 +1,6 @@
 import UIKit
 import Combine
-//import TidesAndCurrentsClient
+import TidesAndCurrentsClient
 
 let formatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -22,5 +22,28 @@ print(Date().description(with: .current))
 let startDate = formatter.string(from: Date())
 let endDate = formatter.string(from: Date().addingTimeInterval(172_800))
 
-let testString = "TEST String"
-testString.localizedCapitalized
+print(endDate)
+
+var cancellables = Set<AnyCancellable>()
+
+let client = _TideClient.live
+
+let _ = client
+    .fetch48HourTidePredictions("1612340")
+    .sink(receiveCompletion: { completion in
+        print(completion)
+    }, receiveValue: { value in
+        value.predictions.map{ print($0.value)}
+        //print(value.predictions)
+    })
+    .store(in: &cancellables)
+
+//let _ = client
+//    .fetch
+//    .sink(receiveCompletion: { completion in
+//        print(completion)
+//    }, receiveValue: { value in
+//        print(value)
+//    })
+//    .store(in: &cancellables)
+

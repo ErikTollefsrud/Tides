@@ -34,16 +34,16 @@ public struct Search {
         case resultChanged([Station])
         case showActivityIndicator
         case downloadAllStations
-        case recieveAllStations(Result<[Station], TideError>)
+        case recieveAllStations(Result<StationResponse, NOAA_APIClientError>)
     }
     
     // MARK: Environment
     
     public struct Environment {
-        var provider: TidesAndCurrentsProvider
+        var provider: TideClient
         var mainQueue: AnySchedulerOf<DispatchQueue>
         
-        public init(provider: TidesAndCurrentsProvider, mainQueue: AnySchedulerOf<DispatchQueue>) {
+        public init(provider: TideClient, mainQueue: AnySchedulerOf<DispatchQueue>) {
             self.provider = provider
             self.mainQueue = mainQueue
         }
@@ -121,15 +121,15 @@ public extension Search {
         case .downloadAllStations:
             //print("downloading...")
             return environment.provider
-                .tidePredictionStations()
+                .fetchTidePredictionStations()
                 .receive(on: environment.mainQueue)
                 .catchToEffect()
                 .map(Action.recieveAllStations)
                 .cancellable(id: DownloadInProgressId(), cancelInFlight: false)
             
-        case let .recieveAllStations(.success(stations)):
-            print("stations: \(stations.count)")
-            state.items = stations
+        case let .recieveAllStations(.success(stationResponse)):
+            print("stations: \(stationResponse.stations.count)")
+            state.items = stationResponse.stations
             return .none
             
         case let .recieveAllStations(.failure(error)):
