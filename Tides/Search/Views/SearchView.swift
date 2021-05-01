@@ -24,7 +24,7 @@ public struct SearchView: View {
                 
                 List(viewStore.filteredItems) { item in
                     
-                    Button(action: {print("button tapped on \(item)\nWindows: \(UIApplication.shared.windows[0].isKeyWindow)")}, label: {
+                    Button(action: {viewStore.send(.stationTapped(item))}, label: {
                         SearchResultRow(station: item)
                     })
                     

@@ -35,6 +35,7 @@ public struct Search {
         case showActivityIndicator
         case downloadAllStations
         case recieveAllStations(Result<StationResponse, NOAA_APIClientError>)
+        case stationTapped(Station)
     }
     
     // MARK: Environment
@@ -96,7 +97,7 @@ public extension Search {
             
         case .performSearch:
             let query = state.query
-            print("Searching: \(query)")
+            //print("Searching: \(query)")
             let activateSearchEffect = Effect<Action, Never>(value: .showActivityIndicator)
                 .delay(for: .milliseconds(300), scheduler: environment.mainQueue)
                 .eraseToEffect()
@@ -128,12 +129,15 @@ public extension Search {
                 .cancellable(id: DownloadInProgressId(), cancelInFlight: false)
             
         case let .recieveAllStations(.success(stationResponse)):
-            print("stations: \(stationResponse.stations.count)")
+            //print("stations: \(stationResponse.stations.count)")
             state.items = stationResponse.stations
             return .none
             
         case let .recieveAllStations(.failure(error)):
             state.items = []
+            return .none
+            
+        case let .stationTapped(station):
             return .none
         }
     }

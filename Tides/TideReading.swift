@@ -56,6 +56,7 @@ struct TideReadingView: View {
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack {
+                //Text("\(viewStore.station?.name ?? "")")
                 List {
                     ForEach(viewStore.predictionReading.predictions, id: \.self) { prediction in
                         Text("\(prediction.time) - \(prediction.value) - \(prediction.type.rawValue)")

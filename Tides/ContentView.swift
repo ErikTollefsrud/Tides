@@ -19,6 +19,7 @@ struct Root {
         var stationsSearchResult: [Station] = []
         var filteredStations: [Station] = []
         var searchShouldShowActivityIndicator: Bool = false
+        var predictionReading: TidePredictions?
         
         var search: Search.State {
             get {
@@ -39,10 +40,13 @@ struct Root {
         
         var tideReadingState: TideReading.State {
             get {
-                return TideReading.State(station: selectedStation, predictionReading: TidePredictions.init(predictions: []))
+                return TideReading.State(
+                    station: self.selectedStation,
+                    predictionReading: self.predictionReading ?? TidePredictions.init(predictions: []))
             }
             set {
                 self.selectedStation = newValue.station
+                self.predictionReading = newValue.predictionReading
             }
         }
         
@@ -75,12 +79,28 @@ extension Root.Environment {
 }
 
 extension Root {
+    static let searchToStationReadingReducer = Reducer<Root.State, Search.Action, Root.Environment> { state, action, env in
+        switch action {
+        case let .stationTapped(station):
+            state.selectedStation = station
+            state.selectedTab = .stationReading
+            return .none
+        default:
+            ()
+        }
+        return .none
+    }
+    
     static let reducer: Reducer<State, Action, Environment> = .combine(
         Search.reducer.pullback(
             state: \.search,
             action: /Action.search,
             environment: \.search
         ),
+        searchToStationReadingReducer.pullback(
+            state: \.self,
+            action: /Action.search,
+            environment: identity),
         TideReading.reducer.pullback(
             state: \.tideReadingState,
             action: /Action.tideReading,
@@ -108,12 +128,14 @@ struct ContentView: View {
                         get: \.selectedTab,
                         send: Root.Action.setSelectedTab(tab:))
             ) {
-                TideReadingView(
-                    store: self.store.scope(
-                        state: { $0.tideReadingState},
-                        action: { .tideReading($0)}
+                NavigationView {
+                    TideReadingView(
+                        store: self.store.scope(
+                            state: { $0.tideReadingState},
+                            action: { .tideReading($0)}
+                        )
                     )
-                )
+                }
                 .tabItem{
                     Image(systemName: "mappin.and.ellipse")
                     Text("Data")
@@ -144,7 +166,10 @@ struct ContentView_Previews: PreviewProvider {
                     errorMessage: "", stationsSearchResult: [
                         Station(id: "12345678", name: "Test 1", state: "MN", latitude: 100.00, longitude: -100.00),
                         Station(id: "87654321", name: "Test 2", state: "WI", latitude: 200.00, longitude: -200.00)
-                    ]
+                    ], predictionReading: TidePredictions.init(
+                        predictions: [
+                            Tide(time: Date(), value: 10.0, type: .high),
+                            Tide(time: Date(), value: -5.0, type: .low)])
                 ),
                 reducer: Root.reducer,
                 environment: Root.Environment(
@@ -154,3 +179,5 @@ struct ContentView_Previews: PreviewProvider {
         )
     }
 }
+
+public func identity<T>(_ t: T) -> T { t }
