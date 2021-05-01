@@ -13,6 +13,7 @@ import TidesAndCurrentsClient
 struct Root {
     struct State: Equatable {
         var selectedTab = Tab.stationReading
+        var selectedStation: Station?
         var searchText: String = ""
         var errorMessage: String = ""
         var stationsSearchResult: [Station] = []
@@ -36,6 +37,15 @@ struct Root {
             }
         }
         
+        var tideReadingState: TideReading.State {
+            get {
+                return TideReading.State(station: selectedStation, predictionReading: TidePredictions.init(predictions: []))
+            }
+            set {
+                self.selectedStation = newValue.station
+            }
+        }
+        
         enum Tab {
             case stationReading
             case locationSearch
@@ -45,6 +55,7 @@ struct Root {
     enum Action: Equatable {
         case setSelectedTab(tab: Root.State.Tab)
         case search(Search.Action)
+        case tideReading(TideReading.Action)
     }
     
     struct Environment {
@@ -58,6 +69,9 @@ extension Root.Environment {
     var search: Search.Environment {
         .init(provider: self.tidesClient, mainQueue: self.mainQueue)
     }
+    var tideReading: TideReading.Environment {
+        .init(tidesAndCurrentProvider: self.tidesClient)
+    }
 }
 
 extension Root {
@@ -67,6 +81,10 @@ extension Root {
             action: /Action.search,
             environment: \.search
         ),
+        TideReading.reducer.pullback(
+            state: \.tideReadingState,
+            action: /Action.tideReading,
+            environment: \.tideReading),
         Reducer { state, action, environment in
             switch action {
             case .setSelectedTab(tab: let tab):
@@ -90,11 +108,16 @@ struct ContentView: View {
                         get: \.selectedTab,
                         send: Root.Action.setSelectedTab(tab:))
             ) {
-                Text("Tab 1")
-                    .tabItem{
-                        Image(systemName: "mappin.and.ellipse")
-                        Text("Data")
-                    }.tag(Root.State.Tab.stationReading)
+                TideReadingView(
+                    store: self.store.scope(
+                        state: { $0.tideReadingState},
+                        action: { .tideReading($0)}
+                    )
+                )
+                .tabItem{
+                    Image(systemName: "mappin.and.ellipse")
+                    Text("Data")
+                }.tag(Root.State.Tab.stationReading)
                 
                 NavigationView {
                     SearchView(

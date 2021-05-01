@@ -11,12 +11,12 @@ import TidesAndCurrentsClient
 
 struct TideReading {
     struct State: Equatable {
-        var stationID: String
+        var station: Station?
         var predictionReading: TidePredictions
     }
     
-    enum Action {
-        case onAppear(String)
+    enum Action: Equatable {
+        case onAppear(String?)
         case predictionResponse(Result<TidePredictions, NOAA_APIClientError>)
     }
     
@@ -29,11 +29,15 @@ extension TideReading {
     static let reducer = Reducer<State, Action, Environment>{ state, action, environment in
         switch action {
         case let .onAppear(stationString):
+            if let stationString = stationString {
             return environment.tidesAndCurrentProvider.fetch48HourTidePredictions(stationString)
                 .receive(on: DispatchQueue.main)
                 .print()
                 .catchToEffect()
                 .map(Action.predictionResponse)
+            } else {
+                return .none
+            }
             
         case let .predictionResponse(.success(response)):
             state.predictionReading = response
@@ -58,7 +62,8 @@ struct TideReadingView: View {
                     }
                 }
             }
-            .onAppear { viewStore.send(.onAppear(viewStore.state.stationID)) }
+            .onAppear { viewStore.send(.onAppear(viewStore.state.station?.id)) }
+            .navigationTitle(Text("\(viewStore.state.station?.name ?? "")"))
         }
     }
 }
@@ -76,7 +81,7 @@ struct TideReading_Previews: PreviewProvider {
     static var previews: some View {
         TideReadingView(
             store: Store(
-                initialState: TideReading.State(stationID: "8454000", predictionReading: TidePredictions(predictions: [])),
+                initialState: TideReading.State(station: Station(id: "12345678", name: "Test 1", state: "MN", latitude: 100.00, longitude: -100.00), predictionReading: TidePredictions(predictions: [])),
                 reducer: TideReading.reducer,
                 environment: TideReading.Environment(tidesAndCurrentProvider: .live))
         )
