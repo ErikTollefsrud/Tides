@@ -63,7 +63,9 @@ struct TideReadingView: View {
                     }
                 }
             }
-            .onAppear { viewStore.send(.onAppear(viewStore.state.station?.id)) }
+            .onChange(of: viewStore.station, perform: { value in
+                viewStore.send(.onAppear(viewStore.state.station?.id))
+            })
             .navigationTitle(Text("\(viewStore.state.station?.name ?? "")"))
         }
     }
