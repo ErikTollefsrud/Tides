@@ -9,6 +9,7 @@ import ComposableArchitecture
 import Combine
 import SwiftUI
 import TidesAndCurrentsClient
+import TidesAndCurrentsClientLive
 
 struct Root {
     struct State: Equatable {
@@ -42,7 +43,7 @@ struct Root {
             get {
                 return TideReading.State(
                     station: self.selectedStation,
-                    predictionReading: self.predictionReading ?? TidePredictions.init(predictions: []))
+                    predictionReading: self.predictionReading ?? TidePredictions(tides: []))
             }
             set {
                 self.selectedStation = newValue.station
@@ -166,8 +167,8 @@ struct ContentView_Previews: PreviewProvider {
                     errorMessage: "", stationsSearchResult: [
                         Station(id: "12345678", name: "Test 1", state: "MN", latitude: 100.00, longitude: -100.00),
                         Station(id: "87654321", name: "Test 2", state: "WI", latitude: 200.00, longitude: -200.00)
-                    ], predictionReading: TidePredictions.init(
-                        predictions: [
+                    ], predictionReading: TidePredictions(
+                        tides: [
                             Tide(time: Date(), value: 10.0, type: .high),
                             Tide(time: Date(), value: -5.0, type: .low)])
                 ),
