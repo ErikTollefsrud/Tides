@@ -21,7 +21,6 @@
 		EFF9CF442614D8C200C2258D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = EFF9CF432614D8C200C2258D /* ComposableArchitecture */; };
 		FB5B993B2649FFD90057FA81 /* TidesAndCurrentsClient in Frameworks */ = {isa = PBXBuildFile; productRef = FB5B993A2649FFD90057FA81 /* TidesAndCurrentsClient */; };
 		FB5B993D264A01530057FA81 /* TidesAndCurrentsClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = FB5B993C264A01530057FA81 /* TidesAndCurrentsClientLive */; };
-		FBF4F77E264A495700DD690B /* Commons in Frameworks */ = {isa = PBXBuildFile; productRef = FBF4F77D264A495700DD690B /* Commons */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +82,6 @@
 				EFF9CF442614D8C200C2258D /* ComposableArchitecture in Frameworks */,
 				FB5B993D264A01530057FA81 /* TidesAndCurrentsClientLive in Frameworks */,
 				FB5B993B2649FFD90057FA81 /* TidesAndCurrentsClient in Frameworks */,
-				FBF4F77E264A495700DD690B /* Commons in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +227,6 @@
 				EFF9CF432614D8C200C2258D /* ComposableArchitecture */,
 				FB5B993A2649FFD90057FA81 /* TidesAndCurrentsClient */,
 				FB5B993C264A01530057FA81 /* TidesAndCurrentsClientLive */,
-				FBF4F77D264A495700DD690B /* Commons */,
 			);
 			productName = Tides;
 			productReference = EFB5CE6B24DC9C0E00D4BA67 /* Tides.app */;
@@ -694,10 +691,6 @@
 		FB5B993C264A01530057FA81 /* TidesAndCurrentsClientLive */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TidesAndCurrentsClientLive;
-		};
-		FBF4F77D264A495700DD690B /* Commons */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Commons;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
