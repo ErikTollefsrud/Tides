@@ -1,6 +1,7 @@
 import ComposableArchitecture
 import Foundation
 import TidesAndCurrentsClient
+import TidesAndCurrentsClientLive
 import UIKit
 
 // MARK: State
@@ -34,7 +35,7 @@ public struct Search {
         case resultChanged([Station])
         case showActivityIndicator
         case downloadAllStations
-        case recieveAllStations(Result<StationResponse, NOAA_APIClientError>)
+        case recieveAllStations(Result<StationResponse, APIError>)
         case stationTapped(Station)
     }
     

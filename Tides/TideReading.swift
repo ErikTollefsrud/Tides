@@ -8,6 +8,7 @@
 import ComposableArchitecture
 import SwiftUI
 import TidesAndCurrentsClient
+import TidesAndCurrentsClientLive
 
 struct TideReading {
     struct State: Equatable {
@@ -17,7 +18,7 @@ struct TideReading {
     
     enum Action: Equatable {
         case onAppear(String?)
-        case predictionResponse(Result<TidePredictions, NOAA_APIClientError>)
+        case predictionResponse(Result<TidePredictions, APIError>)
     }
     
     struct Environment {
@@ -44,7 +45,7 @@ extension TideReading {
             return .none
             
         case let .predictionResponse(.failure(error)):
-            state.predictionReading = TidePredictions(predictions: [])
+            state.predictionReading = TidePredictions(tides: [])
             return .none
         }
     }
@@ -58,8 +59,8 @@ struct TideReadingView: View {
             VStack {
                 //Text("\(viewStore.station?.name ?? "")")
                 List {
-                    ForEach(viewStore.predictionReading.predictions, id: \.self) { prediction in
-                        Text("\(prediction.time) - \(prediction.value) - \(prediction.type.rawValue)")
+                    ForEach(viewStore.predictionReading.tides, id: \.self) { tide in
+                        Text("\(tide.time) - \(tide.value) - \(tide.type.rawValue)")
                     }
                 }
             }
@@ -84,7 +85,7 @@ struct TideReading_Previews: PreviewProvider {
     static var previews: some View {
         TideReadingView(
             store: Store(
-                initialState: TideReading.State(station: Station(id: "12345678", name: "Test 1", state: "MN", latitude: 100.00, longitude: -100.00), predictionReading: TidePredictions(predictions: [])),
+                initialState: TideReading.State(station: Station(id: "12345678", name: "Test 1", state: "MN", latitude: 100.00, longitude: -100.00), predictionReading: TidePredictions(tides: [])),
                 reducer: TideReading.reducer,
                 environment: TideReading.Environment(tidesAndCurrentProvider: .live))
         )
